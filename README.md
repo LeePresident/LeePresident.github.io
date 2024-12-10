@@ -1,5 +1,6 @@
 ### Hi there 👋
 
+The project is for a simple website of my virtual bus company in a Minecraft server named Project Nazca Server.
 <!--
 **LeePresident/LeePresident** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
