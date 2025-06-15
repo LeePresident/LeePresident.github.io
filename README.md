@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-The project is for a simple website of my virtual bus company in a Minecraft server named Project Nazca Server.
+The project is for a simple website of my virtual bus company (StarTone Transport) in a Minecraft server named Project Nazca Server.
 
 The website is mainly coded with HTML and the mainframe is created by GenAI.
 
