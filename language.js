@@ -258,19 +258,55 @@ function switchLanguage(language) {
     document.getElementById(language).classList.add('active');
 }
 
-// Initialize language on page load
+// Initialize language on page load with expiration support
+const LANGUAGE_KEY = 'language';
+const LANGUAGE_TS_KEY = 'language_ts';
+
+function saveLanguage(lang) {
+    localStorage.setItem(LANGUAGE_KEY, lang);
+    localStorage.setItem(LANGUAGE_TS_KEY, Date.now().toString());
+}
+
+function loadLanguageWithExpiry() {
+    const lang = localStorage.getItem(LANGUAGE_KEY);
+    const ts = parseInt(localStorage.getItem(LANGUAGE_TS_KEY), 10);
+    if (!lang || isNaN(ts)) return 'zh';
+    const ageMs = Date.now() - ts;
+    const ttlMs = 30 * 60 * 1000;
+    if (ageMs > ttlMs) {
+        // expired — clear and return default
+        localStorage.removeItem(LANGUAGE_KEY);
+        localStorage.removeItem(LANGUAGE_TS_KEY);
+        return 'zh';
+    }
+    return lang;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-const savedLanguage = localStorage.getItem('language') || 'zh'; // Default to 'zh' if no language is saved
-switchLanguage(savedLanguage); // Apply the saved language
+    // If there's a sessionStorage marker, the user is in the same session (refresh or navigation)
+    // so we should NOT apply expiration. If no marker exists, this is a new session
+    // (tab reopened or browser restarted) and we apply expiry logic.
+    const SESSION_FLAG = 'lang_session';
+    let savedLanguage;
+    if (sessionStorage.getItem(SESSION_FLAG)) {
+        // Same session (refresh) — use stored language without expiry check
+        savedLanguage = localStorage.getItem(LANGUAGE_KEY) || 'zh';
+    } else {
+        // New session — apply expiry logic
+        savedLanguage = loadLanguageWithExpiry(); // may return 'zh' if expired or missing
+        // mark session so subsequent refreshes during this session won't re-check expiry
+        sessionStorage.setItem(SESSION_FLAG, Date.now().toString());
+    }
+    switchLanguage(savedLanguage); // Apply the chosen language
 });
 
 // Event listeners for language buttons
 document.getElementById('zh').addEventListener('click', () => {
-switchLanguage('zh');
-localStorage.setItem('language', 'zh'); // Save the selected language
+    switchLanguage('zh');
+    saveLanguage('zh'); // Save the selected language with timestamp
 });
 
 document.getElementById('en').addEventListener('click', () => {
-switchLanguage('en');
-localStorage.setItem('language', 'en'); // Save the selected language
+    switchLanguage('en');
+    saveLanguage('en'); // Save the selected language with timestamp
 });
