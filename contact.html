@@ -6,68 +6,7 @@
     <title>聯絡我們 | Contact Us</title>
     <script src="language.js" defer></script>
     <link rel="icon" type="image/x-icon" href="STT_logo_min.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav {
-            margin: 10px 0;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #007bff;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .lang-btn {
-            padding: 5px 10px;
-            font-size: 14px;
-            border: none;
-            background-color: transparent;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-        }
-
-        .lang-btn:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-        @media (max-width: 600px) {
-            nav {
-                display: block;
-                margin: 10px 0;
-            }
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -80,6 +19,7 @@
         <button id="en" class="lang-btn" style="margin: 5px;">English</button>
     </div>
     <nav>
+        <a id="nav-index" href="index.html" data-lang-key="index"></a>
         <a id="nav-about" href="about.html" data-lang-key="about"></a>
         <a id="nav-routes" href="routes.html" data-lang-key="routes"></a>
         <a id="nav-notice" href="notice.html" data-lang-key="notice"></a>

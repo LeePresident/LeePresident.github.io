@@ -2,6 +2,7 @@
 const translations = {
     zh: {
         nav: {
+            index: "首頁",
             about: "關於我們",
             routes: "巴士路綫",
             notice: "乘客須知",
@@ -23,6 +24,7 @@ const translations = {
     },
     en: {
         nav: {
+            index: "Home",
             about: "About Us",
             routes: "Bus Routes",
             notice: "Passenger Notice",

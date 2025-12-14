@@ -1,0 +1,77 @@
+/* Shared site styles extracted from individual HTML files */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+header {
+	background: #007bff;
+	color: #fff;
+	padding: 10px 20px;
+	text-align: center;
+}
+nav {
+	margin: 10px 0;
+}
+nav a {
+	color: #fff;
+	margin: 0 15px;
+	text-decoration: none;
+}
+.container {
+	max-width: 800px;
+	margin: auto;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+footer, .footer {
+	text-align: center;
+	padding: 15px;
+	background: #007bff;
+	color: #fff;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+.lang-btn {
+	padding: 5px 10px;
+	font-size: 14px;
+	border: none;
+	background-color: transparent;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px;
+}
+.lang-btn:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 600px) {
+	nav {
+		display: block;
+		margin: 10px 0;
+	}
+	nav a {
+		display: block;
+		margin: 5px 0;
+	}
+}
+/* Table styles used on routes page */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+table, th, td {
+	border: 1px solid #ddd;
+}
+th, td {
+	padding: 8px;
+	text-align: left;
+}
+th {
+	background-color: #f2f2f2;
+}
+
