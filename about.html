@@ -9,43 +9,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header>
-    <a href="index.html" style="text-decoration: none;">
-        <img src="STT_logo_long.png" alt="絲通運輸" style="width: 18%; height: 18%;">
-    </a>
-    <div style="position: absolute; top: 0; right: 0;">
-        <button id="zh" class="lang-btn active" style="margin: 5px;">中文</button>
-        <button id="en" class="lang-btn" style="margin: 5px;">English</button>
+        <a href="index.html" style="text-decoration: none;">
+            <img src="STT_logo_long.png" alt="絲通運輸" style="width: 18%; height: 18%;">
+        </a>
+        <div style="position: absolute; top: 0; right: 0;">
+            <button id="zh" class="lang-btn active" style="margin: 5px;">中文</button>
+            <button id="en" class="lang-btn" style="margin: 5px;">English</button>
+        </div>
+        <nav>
+            <a id="nav-index" href="index.html" data-lang-key="index"></a>
+            <a id="nav-about" href="about.html" data-lang-key="about"></a>
+            <a id="nav-routes" href="routes.html" data-lang-key="routes"></a>
+            <a id="nav-notice" href="notice.html" data-lang-key="notice"></a>
+            <a id="nav-contact" href="contact.html" data-lang-key="contact"></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h3 data-lang-key="about_title"></h3>
+            <p data-lang-key="about_desc_line1"></p>
+            <p data-lang-key="about_desc_line2"></p>
+        </section>
+
+        <section id="services">
+            <h3 data-lang-key="our_services"></h3>
+            <ul>
+                <li data-lang-key="fran_bus"></li>
+                <li data-lang-key="non_fran_bus"></li>
+            </ul>
+        </section>
     </div>
-    <nav>
-        <a id="nav-index" href="index.html" data-lang-key="index"></a>
-        <a id="nav-about" href="about.html" data-lang-key="about"></a>
-        <a id="nav-routes" href="routes.html" data-lang-key="routes"></a>
-        <a id="nav-notice" href="notice.html" data-lang-key="notice"></a>
-        <a id="nav-contact" href="contact.html" data-lang-key="contact"></a>
-    </nav>
-</header>
 
-<div class="container">
-    <section id="about">
-        <h3 data-lang-key="about_title"></h3>
-        <p data-lang-key="about_desc_line1"></p>
-        <p data-lang-key="about_desc_line2"></p>
-    </section>
-
-    <section id="services">
-        <h3 data-lang-key="our_services"></h3>
-        <ul>
-            <li data-lang-key="fran_bus"></li>
-            <li data-lang-key="non_fran_bus"></li>
-        </ul>
-    </section>
-</div>
-
-<footer>
-    <p data-lang-key="copyright"></p>
-</footer>
-
+    <footer>
+        <p data-lang-key="copyright"></p>
+    </footer>
 </body>
 </html>

@@ -10,6 +10,10 @@ header {
 	color: #fff;
 	padding: 10px 20px;
 	text-align: center;
+	box-sizing: border-box;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
 }
 nav {
 	margin: 10px 0;
@@ -27,13 +31,17 @@ nav a {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 footer, .footer {
+	/* make footer full-bleed and match header */
+	box-sizing: border-box;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
 	text-align: center;
-	padding: 15px;
+	padding: 15px 20px;
 	background: #007bff;
 	color: #fff;
 	position: relative;
 	bottom: 0;
-	width: 100%;
 }
 .lang-btn {
 	padding: 5px 10px;

@@ -143,7 +143,7 @@ const passengerNotice = {
 const routeTable = {
     zh: {
         tableTitle: "巴士路綫",
-        routeNumber: "路綫編號",
+        routeNumber: "編號",
         startPoint: "起點",
         endPoint: "終點",
         remarks: "備註",
