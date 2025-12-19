@@ -5,6 +5,7 @@ const translations = {
             index: "首頁",
             about: "關於我們",
             routes: "巴士路綫",
+            news: "最新消息",
             notice: "乘客須知",
             contact: "聯絡我們"
         },
@@ -21,12 +22,15 @@ const translations = {
         non_fran_bus: "非專營巴士服務",
         contact_us: "聯絡我們",
         contact_desc: "如有任何查詢，請聯絡我們：<br>電話：19190810<br>網站：leepresident.github.io<br>地址：洛聖加市中心華環街5號絲逸商業大廈3-7樓",
+        news_title: "最新消息",
+        news_content: "目前沒有最新消息。"
     },
     en: {
         nav: {
             index: "Home",
             about: "About Us",
             routes: "Bus Routes",
+            news: "Latest News",
             notice: "Passenger Notice",
             contact: "Contact Us"
         },
@@ -43,6 +47,8 @@ const translations = {
         non_fran_bus: "Non-franchised Bus Services",
         contact_us: "Contact Us",
         contact_desc: "For any inquiries, please contact us:<br>Phone: 19190810<br>Website: leepresident.github.io<br>Address: 3-7/F, StarOne Commercial Building, 5 Wildring Street, Downtown, Los Sengas",
+        news_title: "Latest News",
+        news_content: "No news at this time."
     }
 };
 
@@ -140,37 +146,16 @@ const passengerNotice = {
     }
 };
 
-const routeTable = {
+// `routesData` holds route table data loaded from `routes.json` at runtime.
+// Keep minimal defaults so the UI doesn't break if the JSON isn't available.
+let routesData = {
     zh: {
         tableTitle: "巴士路綫",
         routeNumber: "編號",
         startPoint: "起點",
         endPoint: "終點",
         remarks: "備註",
-        rows: [
-            { routeNumber: "7", link: "https://docs.google.com/document/d/1KG0qwKi0rHT-xpDb74aY7WdNRr8Badd6Q0BZMp7IYyg", start: "維拉（小倉圍）", end: "向量灣（中）", remarks: "" },
-            { routeNumber: "7A", link: "https://docs.google.com/document/d/1_QZ_p3gF40-zrfVzbKPRrvTWJojNIHhvkxPW_Jjy2JE", start: "卡梅倫", end: "向量灣山頂", remarks: "" },
-            { routeNumber: "7P", link: "https://docs.google.com/document/d/1sPi4thJ3l7Zkq0fX1sgl2kPWW2O5oDIiAPChlwJ5fb4", start: "維拉（小倉圍）", end: "十年理工學院", remarks: "上課日服務" },
-            { routeNumber: "7X", link: "https://docs.google.com/document/d/1RZMEcVpvqMgFepvCFPj8NpNH9FBDn0i5hRpEY8XuVS4", start: "維拉（小倉圍）", end: "菱峽", remarks: "特快綫，星期一至六繁忙時間服務" },
-            { routeNumber: "17", link: "https://docs.google.com/document/d/12oMS6elkT8tnoOJKskc8rMOww1YLziegw2oMyxdmTk0", start: "高地（環高路）", end: "百湖西", remarks: "" },
-            { routeNumber: "17A", link: "https://docs.google.com/document/d/17R6s_pYBhk0nxU28wW2iD9gHjCqXBN-yG03FsEr9zV8", start: "新田（北）", end: "百湖西", remarks: "" },
-            { routeNumber: "40", link: "https://docs.google.com/document/d/1o3dcv2v9AWhcfX42MdBHBkOJThVTPGmkGPYEZtzo3NA", start: "下聯邑", end: "三凹", remarks: "循環綫" },
-            { routeNumber: "110", link: "https://docs.google.com/document/d/1Rqq3f42JsB_3ZvxNwFwcSuPGe0kcsIOtpnWe6kwRtlE", start: "南嶺（駒林邨）", end: "高門（都石道）", remarks: "" },
-            { routeNumber: "111", link: "https://docs.google.com/document/d/1Hh50MJLX-X_v6ya6AXfl39LEAA1hbbvFGXoTsMY_66A", start: "南嶺（駒林邨）", end: "連翠花園", remarks: "星期一至五上午繁忙時間往連翠花園班次不經鶴園" },
-            { routeNumber: "111P", link: "https://docs.google.com/document/d/1QZOk5a4n3eHPbIim514umjmlluUF7AP45CdpPM6hFgI", start: "佐坑（淵樂邨）", end: "連翠花園", remarks: "星期一至六繁忙時間服務" },
-            { routeNumber: "150R", link: "https://docs.google.com/document/d/1XErwWPjZobBKo41u78YK4MautrATOwIZr5IS8h-IgQc", start: "巍松球場", end: "礦採北", remarks: "大型活動特別綫" },
-            { routeNumber: "160R", link: "https://docs.google.com/document/d/107qXr4aNpvlLyk3hc2R0fmE6F9MTDJuVPjakcbF7wFk", start: "巍松球場", end: "華沙（三微秒）", remarks: "大型活動特別綫" },
-            { routeNumber: "170", link: "https://docs.google.com/document/d/1M3Ez7S6m89nJq9lKYJPQAAumNUsXGWZU-MSxfJQWsO0", start: "巍松碼頭", end: "糸湖北", remarks: "" },
-            { routeNumber: "220A", link: "https://docs.google.com/document/d/1la2HuR1Ihoe4W7pGd0Je_X8JnKTzbxCbYy7J0tW0014", start: "彩羽圍", end: "薄河站", remarks: "與羊光巴士聯合營運" },
-            { routeNumber: "220B", link: "https://docs.google.com/document/d/1vO2YgBv5pthDx_GfvEhSdP4w5ZXFHhn5RI07D8HImFk", start: "渣華灘", end: "座河", remarks: "" },
-            { routeNumber: "220X", link: "https://docs.google.com/document/d/1I-PgkpjPY2gYOzz07JC9l-UZsU73gX_UTJOuZckoAy0", start: "六夜碼頭", end: "近北碼頭", remarks: "" },
-            { routeNumber: "240A", link: "https://docs.google.com/document/d/1S-lOpvXRELh7cmwCWD2or9h3j0gXPMoYLDGcea8_Ruk", start: "冚旗灣", end: "卡梅倫", remarks: "" },
-            { routeNumber: "240P", link: "https://docs.google.com/document/d/1y8pRDaCGdAPrV6Tjk27IW4zXTZE-2aEWMgIJCJF1rYo", start: "秊蘤", end: "卡梅倫", remarks: "星期一至六下午繁忙時間單向服務" },
-            { routeNumber: "240X", link: "https://docs.google.com/document/d/1CwvGJ2Q7evCpL5Dgy6ApqrKWlXiXcjgDWCvVg0vohQo", start: "深灣角", end: "下聯邑", remarks: "" },
-            { routeNumber: "273", link: "https://docs.google.com/document/d/1JCK-gEVNrUXAXz1yti_tsCyHjslFGdi-p8JjHw8ZSa8", start: "雲沙", end: "上井沙", remarks: "" },
-            { routeNumber: "N7", link: "https://docs.google.com/document/d/1QhRMsjIeixLs_34xzbEUdi7Ew7_RKnnNCzvq428zXs0", start: "維拉（小倉圍）", end: "向量灣（中）", remarks: "通宵綫，經卡城" },
-            { routeNumber: "N17", link: "https://docs.google.com/document/d/1ZEBmhf9qUJmR2SuRoYkOZdD4Wju3ks94wBUZFSSGXjk", start: "高地（環高路）", end: "百湖西", remarks: "通宵無限循環綫，去程經都泉，回程經新田" }
-        ]
+        rows: []
     },
     en: {
         tableTitle: "Bus Routes",
@@ -178,32 +163,65 @@ const routeTable = {
         startPoint: "Start Point",
         endPoint: "End Point",
         remarks: "Remarks",
-        rows: [
-            { routeNumber: "7", link: "https://docs.google.com/document/d/1KG0qwKi0rHT-xpDb74aY7WdNRr8Badd6Q0BZMp7IYyg", start: "Vayler (Kokura Circuit)", end: "Vector Bay (Central)", remarks: "" },
-            { routeNumber: "7A", link: "https://docs.google.com/document/d/1_QZ_p3gF40-zrfVzbKPRrvTWJojNIHhvkxPW_Jjy2JE", start: "Kamalen", end: "Vector Mount", remarks: "" },
-            { routeNumber: "7P", link: "https://docs.google.com/document/d/1sPi4thJ3l7Zkq0fX1sgl2kPWW2O5oDIiAPChlwJ5fb4", start: "Vayler (Kokura Circuit)", end: "Decennial College", remarks: "Service on school days" },
-            { routeNumber: "7X", link: "https://docs.google.com/document/d/1RZMEcVpvqMgFepvCFPj8NpNH9FBDn0i5hRpEY8XuVS4", start: "Vayler (Kokura Circuit)", end: "Kaling Channel", remarks: "Express route, service during peak hours from Mondays to Saturdays" },
-            { routeNumber: "17", link: "https://docs.google.com/document/d/12oMS6elkT8tnoOJKskc8rMOww1YLziegw2oMyxdmTk0", start: "High Mesa (Mesa Ring Road)", end: "Numpool West", remarks: "" },
-            { routeNumber: "17A", link: "https://docs.google.com/document/d/17R6s_pYBhk0nxU28wW2iD9gHjCqXBN-yG03FsEr9zV8", start: "Sun Tin (North)", end: "Numpool West", remarks: "" },
-            { routeNumber: "40", link: "https://docs.google.com/document/d/1o3dcv2v9AWhcfX42MdBHBkOJThVTPGmkGPYEZtzo3NA", start: "Allied Town Lower", end: "The Three Pass", remarks: "Circular route" },
-            { routeNumber: "110", link: "https://docs.google.com/document/d/1Rqq3f42JsB_3ZvxNwFwcSuPGe0kcsIOtpnWe6kwRtlE", start: "Southern Heights (Kui Lam Estate)", end: "High Approach (Metrock Road)", remarks: "" },
-            { routeNumber: "111", link: "https://docs.google.com/document/d/1Hh50MJLX-X_v6ya6AXfl39LEAA1hbbvFGXoTsMY_66A", start: "Southern Heights (Kui Lam Estate)", end: "Lin Tsui Fa Yuen", remarks: "Mondays to Fridays morning peak service to Lin Tsui Fa Yuen does not go through Craneplaz" },
-            { routeNumber: "111P", link: "https://docs.google.com/document/d/1QZOk5a4n3eHPbIim514umjmlluUF7AP45CdpPM6hFgI", start: "Adju Pit (Enoch Estate)", end: "Lin Tsui Fa Yuen", remarks: "Service during peak hours from Mondays to Saturdays" },
-            { routeNumber: "150R", link: "https://docs.google.com/document/d/1XErwWPjZobBKo41u78YK4MautrATOwIZr5IS8h-IgQc", start: "Pinestand Stadium", end: "Miner North", remarks: "Special route for large events" },
-            { routeNumber: "160R", link: "https://docs.google.com/document/d/107qXr4aNpvlLyk3hc2R0fmE6F9MTDJuVPjakcbF7wFk", start: "Pinestand Stadium", end: "Prosand (TMS HQ)", remarks: "Special route for large events" },
-            { routeNumber: "170", link: "https://docs.google.com/document/d/1M3Ez7S6m89nJq9lKYJPQAAumNUsXGWZU-MSxfJQWsO0", start: "Pinestand Pier", end: "Silk Pond North", remarks: "" },
-            { routeNumber: "220A", link: "https://docs.google.com/document/d/1la2HuR1Ihoe4W7pGd0Je_X8JnKTzbxCbYy7J0tW0014", start: "Chromafringe Circuit", end: "Thin River Station", remarks: "Joint-operated with Watame Buses" },
-            { routeNumber: "220B", link: "https://docs.google.com/document/d/1vO2YgBv5pthDx_GfvEhSdP4w5ZXFHhn5RI07D8HImFk", start: "Java Beach", end: "Seat River", remarks: "" },
-            { routeNumber: "220X", link: "https://docs.google.com/document/d/1I-PgkpjPY2gYOzz07JC9l-UZsU73gX_UTJOuZckoAy0", start: "Sexterade Ferry Pier", end: "Intus Aquilo Pier", remarks: "" },
-            { routeNumber: "240A", link: "https://docs.google.com/document/d/1S-lOpvXRELh7cmwCWD2or9h3j0gXPMoYLDGcea8_Ruk", start: "Kum Kei Bay", end: "Kamalen", remarks: "" },
-            { routeNumber: "240P", link: "https://docs.google.com/document/d/1y8pRDaCGdAPrV6Tjk27IW4zXTZE-2aEWMgIJCJF1rYo", start: "Blossom Ages", end: "Kamalen", remarks: "One-way service during peak hours from Mondays to Saturdays" },
-            { routeNumber: "240X", link: "https://docs.google.com/document/d/1CwvGJ2Q7evCpL5Dgy6ApqrKWlXiXcjgDWCvVg0vohQo", start: "Sham Wan Kok", end: "Allied Town Lower", remarks: "" },
-            { routeNumber: "273", link: "https://docs.google.com/document/d/1JCK-gEVNrUXAXz1yti_tsCyHjslFGdi-p8JjHw8ZSa8", start: "Cloudsand", end: "Upwell Sand", remarks: "" },
-            { routeNumber: "N7", link: "https://docs.google.com/document/d/1QhRMsjIeixLs_34xzbEUdi7Ew7_RKnnNCzvq428zXs0", start: "Vayler (Kokura Circuit)", end: "Vector Bay (Central)", remarks: "Overnight route, via Katadelphia" },
-            { routeNumber: "N17", link: "https://docs.google.com/document/d/1ZEBmhf9qUJmR2SuRoYkOZdD4Wju3ks94wBUZFSSGXjk", start: "High Mesa (Mesa Ring Road)", end: "Numpool West", remarks: "Overnight unlimited circular route, going via Metro Spring, returning via Sun Tin" }
-        ]
+        rows: []
     }
 };
+
+// Load admin-managed news from external JSON (optional).
+function loadNewsFromJSON() {
+    // Use a cache-busted URL so updates to `news.json` appear promptly.
+    // Prefer server-provided `lastUpdated` if previously loaded, otherwise use current timestamp.
+    const ts = translations.lastUpdated ? encodeURIComponent(translations.lastUpdated) : Date.now();
+    const url = `news.json?t=${ts}`;
+    return fetch(url, { cache: 'no-store' })
+        .then(resp => {
+            if (!resp.ok) throw new Error('news.json not found');
+            return resp.json();
+        })
+        .then(data => {
+            if (!data) return;
+            if (data.zh && Array.isArray(data.zh)) translations.zh.news_items = data.zh;
+            if (data.en && Array.isArray(data.en)) translations.en.news_items = data.en;
+            if (data.lastUpdated) translations.lastUpdated = data.lastUpdated;
+        })
+        .catch(() => {
+            // silent fallback to embedded news_content; fetch failure is non-fatal
+        });
+}
+
+// Load admin-managed routes from external JSON (optional).
+function loadRoutesFromJSON() {
+    const ts = translations.routesLastUpdated ? encodeURIComponent(translations.routesLastUpdated) : Date.now();
+    const url = `routes.json?t=${ts}`;
+    return fetch(url, { cache: 'no-store' })
+        .then(resp => {
+            if (!resp.ok) throw new Error('routes.json not found');
+            return resp.json();
+        })
+        .then(data => {
+            if (!data) return;
+            if (data.zh) {
+                if (data.zh.rows && Array.isArray(data.zh.rows)) routesData.zh.rows = data.zh.rows;
+                if (data.zh.tableTitle) routesData.zh.tableTitle = data.zh.tableTitle;
+                if (data.zh.routeNumber) routesData.zh.routeNumber = data.zh.routeNumber;
+                if (data.zh.startPoint) routesData.zh.startPoint = data.zh.startPoint;
+                if (data.zh.endPoint) routesData.zh.endPoint = data.zh.endPoint;
+                if (data.zh.remarks) routesData.zh.remarks = data.zh.remarks;
+            }
+            if (data.en) {
+                if (data.en.rows && Array.isArray(data.en.rows)) routesData.en.rows = data.en.rows;
+                if (data.en.tableTitle) routesData.en.tableTitle = data.en.tableTitle;
+                if (data.en.routeNumber) routesData.en.routeNumber = data.en.routeNumber;
+                if (data.en.startPoint) routesData.en.startPoint = data.en.startPoint;
+                if (data.en.endPoint) routesData.en.endPoint = data.en.endPoint;
+                if (data.en.remarks) routesData.en.remarks = data.en.remarks;
+            }
+            if (data.lastUpdated) translations.routesLastUpdated = data.lastUpdated;
+        })
+        .catch(() => {
+            // silent fallback to embedded routeTable
+        });
+}
 
 // Function to switch language
 function switchLanguage(language) {
@@ -241,7 +259,7 @@ function switchLanguage(language) {
     elements.forEach(element => {
         const key = element.getAttribute('data-lang-key');
         if (key === 'routeTable') {
-            const table = routeTable[language];
+            const table = routesData[language] || { tableTitle: '', routeNumber: '', startPoint: '', endPoint: '', remarks: '', rows: [] };
             let content = `<h3>${table.tableTitle}</h3><table><thead><tr><th>${table.routeNumber}</th><th>${table.startPoint}</th><th>${table.endPoint}</th><th>${table.remarks}</th></tr></thead><tbody>`;
             table.rows.forEach(row => {
                 content += `<tr>
@@ -253,6 +271,24 @@ function switchLanguage(language) {
             });
             content += `</tbody></table>`;
             element.innerHTML = content; // Use innerHTML to render the table
+        }
+    });
+
+    // Render news list when present
+    elements.forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (key === 'news_content') {
+            const items = translations[language].news_items;
+            if (items && items.length) {
+                let content = '<div class="news-list">';
+                items.forEach(item => {
+                    content += `<article class="news-item"><h4>${item.title} <small class="news-date">${item.date}</small></h4><p>${item.content}</p></article>`;
+                });
+                content += '</div>';
+                element.innerHTML = content;
+            } else {
+                element.innerHTML = translations[language].news_content || '';
+            }
         }
     });
 
@@ -299,7 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // mark session so subsequent refreshes during this session won't re-check expiry
         sessionStorage.setItem(SESSION_FLAG, Date.now().toString());
     }
-    switchLanguage(savedLanguage); // Apply the chosen language
+    // Try to load admin-managed JSON files first; fall back to embedded items.
+    Promise.all([loadNewsFromJSON(), loadRoutesFromJSON()]).finally(() => {
+        switchLanguage(savedLanguage); // Apply the chosen language
+    });
 });
 
 // Event listeners for language buttons
